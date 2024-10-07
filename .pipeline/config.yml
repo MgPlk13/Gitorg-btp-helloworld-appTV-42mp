@@ -5,7 +5,7 @@ service:
   buildToolVersion: "MBTJ11N16"
 stages:
   Build:
-    source: helloworldclone
+    source: HelloWorldUI5
     npmExecuteLint: false
   Additional Unit Tests:
     npmExecuteScripts: false
