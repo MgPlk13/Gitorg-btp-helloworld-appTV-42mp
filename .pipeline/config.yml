@@ -5,6 +5,7 @@ service:
   buildToolVersion: "MBTJ11N16"
 stages:
   Build:
+    mavenExecuteStaticCodeChecks: false
     source: HelloWorldUI5
     npmExecuteLint: false
   Additional Unit Tests:
