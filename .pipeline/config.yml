@@ -5,7 +5,7 @@ service:
   buildToolVersion: "MBTJ17N18"
   stages:
     Release:
-      cfCredentialsId: "git-credentials"
+      cfCredentialsId: "sap-credentials"
 stages:
   Build:
     mavenExecuteStaticCodeChecks: false
