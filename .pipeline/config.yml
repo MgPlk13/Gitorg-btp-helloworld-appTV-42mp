@@ -5,7 +5,7 @@ service:
   buildToolVersion: "MBTJ17N18"
   stages:
     Release:
-      cfCredentialsId: "sap-credentials"
+      cfCredentialsId: "btpcr"
 stages:
   Build:
     mavenExecuteStaticCodeChecks: false
