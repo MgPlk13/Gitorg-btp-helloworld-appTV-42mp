@@ -2,31 +2,34 @@
 general:
   buildTool: "mta"
 service:
-  buildToolVersion: "MBTJ11N16"
+  buildToolVersion: "MBTJ17N18"
+  stages:
+    Release:
+      cfCredentialsId: "git-credentials"
 stages:
   Build:
     mavenExecuteStaticCodeChecks: false
     source: HelloWorldUI5
     npmExecuteLint: false
-  Additional Unit Tests:
-    npmExecuteScripts: false
-  Malware Scan:
-    malwareExecuteScan: true
   Acceptance:
     cloudFoundryDeploy: false
     npmExecuteEndToEndTests: false
+  Malware Scan:
+    malwareExecuteScan: false
+  Release:
+    tmsExport: false
+    tmsUpload: false
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
+    cfOrg: "266a4be8trial"
+    cfSpace: "MyFirstSpace"
+    deployType: "standard"
+    cloudFoundryDeploy: true
+  Additional Unit Tests:
+    npmExecuteScripts: false
   Compliance:
     sonarExecuteScan: false
-  Release:
-    cloudFoundryDeploy: true
-    cfApiEndpoint: "https://api.cf.eu10.hana.ondemand.com"
-    cfOrg: "mysubdomain"
-    cfSpace: "dev"
-    cfCredentialsId: "deployonbtpcredentials"
-    deployType: "standard"
-    tmsUpload: false
 steps:
-  artifactPrepareVersion:
-    versioningType: "cloud_noTag"
   cloudFoundryDeploy:
     mtaDeployParameters: "-f --version-rule ALL"
+  artifactPrepareVersion:
+    versioningType: "cloud_noTag"
